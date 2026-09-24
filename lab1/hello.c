@@ -2,6 +2,6 @@
 #include<stdlib.h>
 
 int main(int argc, char*argv[]){
-    printf("Hello World!!!");
+    printf("Git is easy!!!");
     return 0;
 }

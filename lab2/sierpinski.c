@@ -21,9 +21,10 @@ void sort_insert_at(float *tab, int i, int top, float val){
 void sort_insert(float *tab, int top, float val){
     int index = sort_get_index(tab, top, val);
     sort_insert_at(tab, index, top, val);
+    return;
 }
 
- int nb_columns(){
+int nb_columns(){
     return 32;
  }
 
@@ -34,6 +35,7 @@ int nb_lines(){
 void grid_init(char* grid, char pixel){
     for(int i =0; i<nb_columns()*nb_lines(); i++)
         grid[i] = pixel;
+    return;
 }
 
 void grid_display(char* grid){
@@ -43,6 +45,7 @@ void grid_display(char* grid){
         }
         printf("\n");
     }
+    return;
 }
 
 int main(int argc, char* argv[]){

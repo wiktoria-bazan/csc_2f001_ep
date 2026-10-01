@@ -32,6 +32,8 @@ int nb_lines(){
 }
 
 int main(int argc, char* argv[]){
-    printf("nb_columns is %d, nb_lines is %d", nb_columns(), nb_lines());
+    char grid[nb_lines()*nb_columns()];
+    grid[0] = '*';
+    printf("%c", grid[0]);
     return 0;
 }

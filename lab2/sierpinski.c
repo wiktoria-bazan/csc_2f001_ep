@@ -11,6 +11,7 @@ int sort_get_index(float *tab, int top, float val){
 
 int main(int argc, char* argv[]){
     float tab[] = {1, 3, 5, 7, 0};
+    printf("Insert 0 at %d, 3.5 at %d, 10 at %d\n", sort_get_index(tab, 5, 0),  sort_get_index(tab, 5, 3.5),  sort_get_index(tab, 5, 10));
     for(int i = 0; i<5; i++)
         printf("%f ", tab[i]);
     return 0;

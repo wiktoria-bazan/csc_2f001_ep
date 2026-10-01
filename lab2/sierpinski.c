@@ -49,13 +49,17 @@ void grid_display(char* grid){
 }
 
 void plot_point(char* grid, int x, int y, char pixel){
+    if(y < 0 || y >= nb_columns())
+        exit(EXIT_FAILURE);
+    if(x < 0 || x >= nb_lines())
+        exit(EXIT_FAILURE);
     grid[(nb_lines() - y - 1)*nb_columns() + x] = pixel;
 }
 
 int main(int argc, char* argv[]){
     char grid[nb_lines()*nb_columns()];
     grid_init(grid, '*');
-    plot_point(grid, 3, 1, ' ');
+    plot_point(grid, 3, 100, ' ');
     grid_display(grid);
     return 0;
 }

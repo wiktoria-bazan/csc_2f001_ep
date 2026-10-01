@@ -54,12 +54,22 @@ void plot_point(char* grid, int x, int y, char pixel){
     if(x < 0 || x >= nb_lines())
         exit(EXIT_FAILURE);
     grid[(nb_lines() - y - 1)*nb_columns() + x] = pixel;
+    return;
 }
+
+void plot_vline(char* grid, int x, float fy0, float fy1, char pixel){
+    int y0 = (int)fy0;
+    int y1 = (int)fy1;
+    for(int y = y0; y <= y1; y++)
+        plot_point(grid, x, y, pixel);
+    return;
+}
+
 
 int main(int argc, char* argv[]){
     char grid[nb_lines()*nb_columns()];
-    grid_init(grid, '*');
-    plot_point(grid, 3, 100, ' ');
+    grid_init(grid, ' ');
+    plot_vline(grid, 1, 2, 3, '|');
     grid_display(grid);
     return 0;
 }

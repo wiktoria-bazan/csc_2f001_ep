@@ -49,9 +49,9 @@ void grid_display(char* grid){
 }
 
 void plot_point(char* grid, int x, int y, char pixel){
-    if(y < 0 || y >= nb_columns())
+    if(y < 0 || y >= nb_lines())
         exit(EXIT_FAILURE);
-    if(x < 0 || x >= nb_lines())
+    if(x < 0 || x >= nb_columns())
         exit(EXIT_FAILURE);
     grid[(nb_lines() - y - 1)*nb_columns() + x] = pixel;
     return;
@@ -83,23 +83,28 @@ void plot_poly_sweep(char* grid, struct point* p, int n, int x, char pixel){
             top += 1;
         }
     }
-
     for(int i = 0; i<top;i++){
         printf("%f ", vlines[i]);
     }
     printf("\n");
+
+    for(int i = 0; i<top - 1;i+=2){
+        plot_vline(grid,x,vlines[i], vlines[i+1],pixel);
+    }
 }
 
 void plot_poly(char* grid, struct point* p, int np, char pixel){
-    for(int i = 0; i<nb_columns();i++)
+    for(int i = 0; i<nb_columns();i++){
         plot_poly_sweep(grid, p, np, i, pixel);
+    }
+
 }
 
 int main(int argc, char* argv[]){
     char grid[nb_lines()*nb_columns()];
     grid_init(grid, ' ');
     struct point a[] = {{ 2, 13 }, { 10, 13 }, { 30, 7 }, { 10, 1 }, { 2, 1 }, { 18, 7 }};
-    plot_poly(grid, a, 6, 'X');
+    plot_poly(grid, a, 6, '-');
     grid_display(grid);
     return 0;
 }

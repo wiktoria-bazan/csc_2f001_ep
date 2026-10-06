@@ -77,7 +77,7 @@ void plot_poly_sweep(char* grid, struct point* p, int n, int x, char pixel){
     printf("sweep %i: ", x);
     for(int i = 0; i<n; i++){
         int j = (n + i - 1) % n;
-        if((p[j].x <= x && x <= p[i].x) || (p[i].x <= x && x <= p[j].x)){
+        if((p[j].x <= x && x < p[i].x) || (p[i].x <= x && x < p[j].x)){
             float y = p[i].y + (x - p[i].x) * (p[j].y - p[i].y) / (p[j].x - p[i].x);
             sort_insert(vlines, top, y);
             top += 1;

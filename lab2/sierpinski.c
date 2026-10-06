@@ -72,7 +72,12 @@ struct point{
 };
 
 void plot_poly_sweep(char* grid, struct point* arr, int np, int x, char pixel){
-    printf("sweep %i: \n", x);
+    printf("sweep %i: ", x);
+    for(int i = 0; i<np; i++){
+        int j = (np + i - 1) % np;
+        printf("(%i, %i) ", j, i);
+    }
+    printf("\n");
 }
 
 void plot_poly(char* grid, struct point* arr, int np, char pixel){

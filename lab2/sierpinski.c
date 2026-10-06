@@ -71,14 +71,21 @@ struct point{
     float x, y;
 };
 
-void plot_poly_sweep(char* grid, struct point* p, int np, int x, char pixel){
+void plot_poly_sweep(char* grid, struct point* p, int n, int x, char pixel){
+    float vlines[n*4];
+    int top = 0;
     printf("sweep %i: ", x);
-    for(int i = 0; i<np; i++){
-        int j = (np + i - 1) % np;
+    for(int i = 0; i<n; i++){
+        int j = (n + i - 1) % n;
         if((p[j].x <= x && x <= p[i].x) || (p[i].x <= x && x <= p[j].x)){
             float y = p[i].y + (x - p[i].x) * (p[j].y - p[i].y) / (p[j].x - p[i].x);
-            printf("%f ", y);
+            sort_insert(vlines, top, y);
+            top += 1;
         }
+    }
+
+    for(int i = 0; i<top;i++){
+        printf("%f ", vlines[i]);
     }
     printf("\n");
 }

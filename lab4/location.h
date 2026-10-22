@@ -9,7 +9,7 @@ struct location_t{
     double latitude;
     double longitude;
     location_t* neighbors;
-    int nb_neighbors;
+    size_t nb_neighbors;
 
     location_t(std::string name, double latitude, double longitude);
     void set_neighbors(location_t* list[]);

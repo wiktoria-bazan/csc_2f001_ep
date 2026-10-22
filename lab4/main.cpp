@@ -25,7 +25,6 @@ int main(int argc, char* argv[]){
     location_t pampelune { "Pampelune", 0.74722, -0.0287242 };
     location_t bilbao { "Bilbao", 0.755082, -0.0512252 };
 
-
     palaiseau.set_neighbors(new location_t*[] { &paris, nullptr });
     paris.set_neighbors(new location_t*[] { &palaiseau, &lemans, &orleans, &reims, &dijon, nullptr });
     reims.set_neighbors(new location_t*[] { &strasbourg, &dijon, nullptr });

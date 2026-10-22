@@ -8,7 +8,7 @@ location_t::~location_t(){
 }
 
 void location_t::set_neighbors(location_t* list[]){
-    neighbors = *list;
+    neighbors = list;
     nb_neighbors = 0;
     while(*list != nullptr){
         nb_neighbors += 1;

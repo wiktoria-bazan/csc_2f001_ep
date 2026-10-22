@@ -47,6 +47,6 @@ int main(int argc, char* argv[]){
     pampelune.set_neighbors(new location_t*[] { &bilbao, &sansebastian, &pau, nullptr });
     bilbao.set_neighbors(new location_t*[] { &sansebastian, &pampelune, nullptr });
 
-    //std::cout<<bilbao.nb_neighbors<<"\n";
+    std::cout<<palaiseau.distance_to(&paris)<<"\n";
     return 0;
 }

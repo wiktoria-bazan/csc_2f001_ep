@@ -1,7 +1,13 @@
-#.o
-#.obj
+#ignore everything 
+*
+!*.* #bring back files with extensions
+!*/ #bring back folders 
+!Makefile #bring back makefiles 
 
-#.exe
-#.out
 
-practice/
+*.o
+
+.DS_Store
+.vscode/
+
+*.exe

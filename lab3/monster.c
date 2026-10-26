@@ -3,11 +3,15 @@
 #include<stdio.h>
 
 #include "monster.h"
+#include "macro.h"
+
 
 struct monster* create_monster(char* name, int health){
     struct monster* m = malloc(sizeof(*m));
-    for(int i=0; name[i] != 0; i++)
+    for(int i=0; name[i] != 0; i++){
         m->name[i] = name[i];
+        if(name[i + 1] == 0) m->name[i + 1] = 0;
+    }
     m->health = health;
     return m;
 }

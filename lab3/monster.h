@@ -3,7 +3,7 @@
 
 
 struct monster{
-    char* name;
+    char name[256];
     int health;
 };
 

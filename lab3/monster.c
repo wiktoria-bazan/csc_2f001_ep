@@ -7,7 +7,8 @@
 
 struct monster* create_monster(char* name, int health){
     struct monster* m = malloc(sizeof(*m));
-    m->name = name;
+    for(int i=0; name[i] != 0; i++)
+        m->name[i] = name[i];
     m->health = health;
     return m;
 }

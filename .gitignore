@@ -1,8 +1,11 @@
 #ignore everything 
 *
-!*.* #bring back files with extensions
-!*/ #bring back folders 
-!Makefile #bring back makefiles 
+#bring back files with extensions
+!*.* 
+#bring back folders 
+!*/ 
+#bring back makefiles 
+!Makefile 
 
 
 *.o
@@ -11,3 +14,4 @@
 .vscode/
 
 *.exe
+*practice/

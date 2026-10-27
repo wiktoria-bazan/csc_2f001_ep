@@ -2,44 +2,55 @@
 #include<stdio.h>
 #include <stdlib.h>
 
+struct node{
+    struct monster* monster;
+    struct node* next;
+};
+
 struct army {
-  struct monster** monsters; // a pointer to an array, where each element of the array is a pointer to a monster
-  int top;                   // where you have the last monster in the array
-  int capacity;              // the capacity of the array
+  struct node* first;
   int stars;
 };
 
 struct army* create_army(){
     struct army *a = malloc(sizeof(*a));
-    a->monsters = NULL;
-    a->top = 0;
-    a->capacity = 0;
+    a->first = NULL;
     a->stars = 0;
     return a;
 }
 
 void add_monster_to_army(struct army* a, struct monster *m){
-    if(a->capacity == 0){
-        a->monsters = malloc(sizeof(*a->monsters));
-        a->capacity = 1;
-    }
-    else if(a->top == a->capacity){
-        a->capacity *= 2;
-        a->monsters = realloc(a->monsters, a->capacity*sizeof(*a->monsters));
-    }
+    if(a->first == NULL){
+         a->first = malloc(sizeof(*a->first));
+        a->first->monster = m;
+        a->first->next = NULL;
+    }else{
+        struct node* last = a->first;
+        while(last->next != NULL)
+            last = last->next;
 
-    a->monsters[a->top] = m;
-    a->top += 1;
+        last->next = malloc(sizeof(*last));
+        last->next->monster = m;
+        last->next->next = NULL;
+    }
 }
 
 
 void display_army(struct army* a){
     printf("This is a %i stars army\n", a->stars);
-    for(int i=0; i<a->top; i++)
-        display_monster(a->monsters[i]);
+    struct node* last = a->first;
+    while(last != NULL){
+        display_monster(last->monster);
+        last = last->next;
+    }
 }
 
 void delete_army(struct army* a){
-    free(a->monsters);
+    struct node* last = a->first;
+    while(last != NULL){
+        struct node* help = last->next;
+        free(last);
+        last = help;
+    }
     free(a);
 }

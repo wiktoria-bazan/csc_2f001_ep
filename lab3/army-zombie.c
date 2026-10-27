@@ -2,11 +2,19 @@
 #include<stdio.h>
 #include <stdlib.h>
 
+struct army {
+  struct monster** monsters; // a pointer to an array, where each element of the array is a pointer to a monster
+  int top;                   // where you have the last monster in the array
+  int capacity;              // the capacity of the array
+  int stars;
+};
+
 struct army* create_army(){
     struct army *a = malloc(sizeof(*a));
     a->monsters = NULL;
     a->top = 0;
     a->capacity = 0;
+    a->stars = 0;
     return a;
 }
 
@@ -26,6 +34,7 @@ void add_monster_to_army(struct army* a, struct monster *m){
 
 
 void display_army(struct army* a){
+    printf("This is a %i stars army\n", a->stars);
     for(int i=0; i<a->top; i++)
         display_monster(a->monsters[i]);
 }

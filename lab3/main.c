@@ -15,10 +15,5 @@ int main(int argc, char* argv[]){
     }
     display_army(a);
     delete_army(a);
-    for(int i=0;i<10;i++){
-        display_monster(m[i]);}
-
-    for(int i=0;i<10;i++){
-        delete_monster(m[i]);}
     return 0;
 }

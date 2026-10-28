@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include "location.h"
+#include "shortest_path.h"
 
 int main(int argc, char* argv[]){
     location_t palaiseau { "Palaiseau", 0.850219, 0.0386527 };
@@ -47,6 +48,15 @@ int main(int argc, char* argv[]){
     pampelune.set_neighbors(new location_t*[] { &bilbao, &sansebastian, &pau, nullptr });
     bilbao.set_neighbors(new location_t*[] { &sansebastian, &pampelune, nullptr });
 
+
     std::cout<<palaiseau.distance_to(&paris)<<"\n";
+
+    shortest_path_t path {&palaiseau, &bilbao};
+    path.compute();
+    path.display();
+
+    shortest_path_t path2 {&bilbao, &palaiseau};
+    path2.compute();
+    path2.display();
     return 0;
 }

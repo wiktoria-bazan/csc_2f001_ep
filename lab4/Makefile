@@ -4,7 +4,7 @@
 
 LDFLAGS=
 LIBS=
-CFLAGS= -Wall -Werror -g
+CFLAGS= -Wall -Werror -g 
 BIN=bilbao
 
 all: $(BIN) #do if is there is no all (which is true from phony and then do BIN if it's not up to date)

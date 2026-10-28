@@ -6,6 +6,13 @@
 shortest_path_t::shortest_path_t(location_t* from,  location_t* to)
 : head{nullptr}, base{nullptr}, from{from}, to{to}{}
 
+shortest_path_t::~shortest_path_t(){
+    while(head != nullptr){
+        node_t* help = head->next;
+        delete head;
+        head = help;
+    } 
+}
 
 void shortest_path_t::compute(){
     head = new node_t{nullptr,from,nullptr,0,from->distance_to(to),false};
@@ -73,4 +80,6 @@ void shortest_path_t::display(){
     std::cout<<"path from "<<from->name<<" to "<<to->name<<"\n";
     for(int i = count; i>=0;i--) 
         std::cout<<"* "<<arr[i]->location->name<<" at "<<arr[i]->from_origin<<"km from "<<from->name<<"\n";
-}
+
+    delete[] arr;
+    }

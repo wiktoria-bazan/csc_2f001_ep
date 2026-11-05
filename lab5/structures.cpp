@@ -34,3 +34,8 @@ std::string integer_t::to_string(){
     return std::to_string(value);
 }
 
+//LIST
+
+list_t::list_t():
+elements{nullptr}, nb_elements{0}, capacity{0}{};
+

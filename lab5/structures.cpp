@@ -2,6 +2,7 @@
 #include "structures.h"
 
 
+//NODE
 node_t* node_t::eval(){
     return this;
 }
@@ -23,3 +24,13 @@ std::string node_t::to_string(){
 list_t* node_t::as_list(){
     error("Node is not necessary a list");
 }
+
+//INTEGER
+
+integer_t::integer_t(uintptr_t value):
+value{value}{};
+
+std::string integer_t::to_string(){
+    return std::to_string(value);
+}
+

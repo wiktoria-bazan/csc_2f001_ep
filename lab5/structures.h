@@ -12,4 +12,11 @@ virtual std::string to_string();
 virtual list_t* as_list();
 };
 
+struct integer_t:node_t{
+    uintptr_t value;
+    
+    integer_t(uintptr_t value);
+    std::string to_string();
+};
+
 #endif

@@ -30,6 +30,10 @@ uintptr_t node_t::int_value(){
     error("Node is not an integer");
 }
 
+bool node_t::is(std::string id){
+    return false;
+}
+
 //INTEGER
 
 integer_t::integer_t(uintptr_t value):
@@ -119,4 +123,16 @@ node_t* add_t::apply(list_t* list){
     for(int i = 1; i < list->nb_elements;i++)
         result += list->at(i)->eval()->int_value();
     return new integer_t{result};
+}
+
+//SYMBOL 
+
+symbol_t::symbol_t(std::string id):id{id}{}
+
+bool symbol_t::is(std::string id){
+    return this->id == id;
+}
+
+std::string symbol_t::to_string(){
+    return id;
 }

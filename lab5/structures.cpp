@@ -136,3 +136,28 @@ bool symbol_t::is(std::string id){
 std::string symbol_t::to_string(){
     return id;
 }
+
+//CALL FRAMES
+
+void frame_t::set(node_t* sym, node_t* value){
+    for(int i=0;i<nb_elements;i++){
+        if(sym->is(at(i)->as_list()->at(0)->to_string())) { 
+            at(i)->as_list()->set_at(1, value);
+            return;
+        }
+    }
+    //we create a new symbol
+    list_t* ns = new list_t;
+    ns->append(sym);
+    ns->append(value);
+    append(ns);
+}
+
+node_t* frame_t::get(node_t* sym){
+    for(int i=0;i<nb_elements;i++){
+        if(sym->is(at(i)->as_list()->at(0)->to_string())) { 
+            return at(i)->as_list()->at(1);
+        }
+    }
+    error("Value does not exist");
+}

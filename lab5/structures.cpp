@@ -137,6 +137,11 @@ std::string symbol_t::to_string(){
     return id;
 }
 
+node_t* symbol_t::eval(frame_t* frame){
+    return frame->get(this);
+}
+
+
 //CALL FRAMES
 
 void frame_t::set(node_t* sym, node_t* value){

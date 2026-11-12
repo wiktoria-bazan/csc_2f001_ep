@@ -115,7 +115,8 @@ std::string keyword_t::to_string(){
 add_t::add_t():keyword_t("+"){};
 
 node_t* add_t::apply(list_t* list){
-    uintptr_t first = list->at(1)->eval()->int_value();
-    uintptr_t second = list->at(2)->eval()->int_value();
-    return new integer_t{first + second};
+    uintptr_t result = 0;
+    for(int i = 1; i < list->nb_elements;i++)
+        result += list->at(i)->eval()->int_value();
+    return new integer_t{result};
 }

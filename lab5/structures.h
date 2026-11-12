@@ -34,6 +34,11 @@ struct list_t:node_t{
     std::string to_string();
 };
 
+struct keyword_t:node_t{
+    std::string id;
 
+    keyword_t(std::string id);
+    std:: string to_string();
+};
 
 #endif

@@ -66,4 +66,11 @@ struct frame_t:list_t{
     node_t* get(node_t* sym);
 };
 
+
+struct set_t:keyword_t{
+    set_t();
+
+    node_t* apply(list_t* list, frame_t* frame);
+};
+ 
 #endif

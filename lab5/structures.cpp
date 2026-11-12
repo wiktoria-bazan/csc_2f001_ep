@@ -166,3 +166,15 @@ node_t* frame_t::get(node_t* sym){
     }
     error("Value does not exist");
 }
+
+//SET!
+
+set_t::set_t():keyword_t("set!"){};
+
+node_t* set_t::apply(list_t* list, frame_t* frame){
+    node_t* sym = list->at(1);
+    uintptr_t v = list->at(2)->eval(frame)->int_value();
+    integer_t* val = new integer_t(v);
+    frame->set(sym, val);
+    return frame;
+}

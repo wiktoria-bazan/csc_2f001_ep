@@ -2,7 +2,7 @@
 .SECONDARY:
 .PHONY: all clean 
 
-LDFLAGS=
+LDFLAGS= 
 LIBS=
 CFLAGS= -Wall -Werror -g
 BIN=lisp

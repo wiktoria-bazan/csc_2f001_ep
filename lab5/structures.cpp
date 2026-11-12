@@ -14,7 +14,7 @@ node_t* node_t::eval(frame_t* frame){
     return this;
 }
 
-node_t* node_t::apply(list_t* list){
+node_t* node_t::apply(list_t* list, frame_t* frame){
     error("Node is an integer or a list");
 }
 
@@ -104,7 +104,7 @@ std::string list_t::to_string(){
 
 node_t* list_t::eval(frame_t* frame){
     node_t* first = (*elements)->eval(frame);
-    node_t* calc = first->apply(as_list());
+    node_t* calc = first->apply(as_list(), frame);
     return calc;
 }
 

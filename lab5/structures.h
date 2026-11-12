@@ -32,6 +32,7 @@ struct list_t:node_t{
     void set_at(size_t i, node_t* value);
     void append(node_t* value); 
     std::string to_string();
+    node_t* eval();
 };
 
 struct keyword_t:node_t{

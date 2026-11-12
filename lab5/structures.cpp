@@ -90,6 +90,12 @@ std::string list_t::to_string(){
     return rep;
 }
 
+node_t* list_t::eval(){
+    node_t* first = (*elements)->eval();
+    node_t* calc = first->apply(as_list());
+    return calc;
+}
+
 //KEYWORD
 
 keyword_t::keyword_t(std::string id):id{id}{};

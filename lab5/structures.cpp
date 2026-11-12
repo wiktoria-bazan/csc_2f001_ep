@@ -84,8 +84,9 @@ std::string list_t::to_string(){
         
         if(i < nb_elements  - 1)
             rep += " ";
-        else rep += ")";
     }
+
+    rep += ")";
     return rep;
 }
 

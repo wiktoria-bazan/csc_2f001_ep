@@ -41,4 +41,8 @@ struct keyword_t:node_t{
     std:: string to_string();
 };
 
+struct add_t:keyword_t{
+    add_t();
+};
+
 #endif

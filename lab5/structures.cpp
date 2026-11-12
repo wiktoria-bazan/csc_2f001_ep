@@ -97,3 +97,5 @@ std::string keyword_t::to_string(){
     return "<" + id + ">";
 }
 
+//ADD
+add_t::add_t():keyword_t("+"){};

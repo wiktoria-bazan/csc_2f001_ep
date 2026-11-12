@@ -10,6 +10,7 @@ virtual node_t* eval();
 virtual node_t* apply(list_t* list);
 virtual std::string to_string();
 virtual list_t* as_list();
+virtual uintptr_t int_value();
 };
 
 struct integer_t:node_t{
@@ -17,6 +18,7 @@ struct integer_t:node_t{
     
     integer_t(uintptr_t value);
     std::string to_string();
+    uintptr_t int_value();
 };
 
 struct list_t:node_t{
@@ -32,6 +34,7 @@ struct list_t:node_t{
     void set_at(size_t i, node_t* value);
     void append(node_t* value); 
     std::string to_string();
+    
     node_t* eval();
 };
 
@@ -44,6 +47,8 @@ struct keyword_t:node_t{
 
 struct add_t:keyword_t{
     add_t();
+
+    node_t* apply(list_t* list);
 };
 
 #endif

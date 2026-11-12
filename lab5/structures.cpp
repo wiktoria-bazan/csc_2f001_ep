@@ -26,6 +26,10 @@ list_t* node_t::as_list(){
     error("Node is not necessary a list");
 }
 
+uintptr_t node_t::int_value(){
+    error("Node is not an integer");
+}
+
 //INTEGER
 
 integer_t::integer_t(uintptr_t value):
@@ -33,6 +37,10 @@ value{value}{};
 
 std::string integer_t::to_string(){
     return std::to_string(value);
+}
+
+uintptr_t integer_t::int_value(){
+    return value;
 }
 
 //LIST
@@ -105,3 +113,9 @@ std::string keyword_t::to_string(){
 
 //ADD
 add_t::add_t():keyword_t("+"){};
+
+node_t* add_t::apply(list_t* list){
+    uintptr_t first = list->at(1)->eval()->int_value();
+    uintptr_t second = list->at(2)->eval()->int_value();
+    return new integer_t{first + second};
+}

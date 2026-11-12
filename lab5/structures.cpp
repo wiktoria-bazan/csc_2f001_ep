@@ -10,7 +10,7 @@ void error(std::string str) {
 }
 
 //NODE
-node_t* node_t::eval(){
+node_t* node_t::eval(frame_t* frame){
     return this;
 }
 
@@ -102,8 +102,8 @@ std::string list_t::to_string(){
     return rep;
 }
 
-node_t* list_t::eval(){
-    node_t* first = (*elements)->eval();
+node_t* list_t::eval(frame_t* frame){
+    node_t* first = (*elements)->eval(frame);
     node_t* calc = first->apply(as_list());
     return calc;
 }
@@ -118,10 +118,10 @@ std::string keyword_t::to_string(){
 //ADD
 add_t::add_t():keyword_t("+"){};
 
-node_t* add_t::apply(list_t* list){
+node_t* add_t::apply(list_t* list, frame_t* frame){
     uintptr_t result = 0;
     for(int i = 1; i < list->nb_elements;i++)
-        result += list->at(i)->eval()->int_value();
+        result += list->at(i)->eval(frame)->int_value();
     return new integer_t{result};
 }
 

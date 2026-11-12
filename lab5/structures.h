@@ -4,9 +4,10 @@
 #include<string>
 
 struct list_t;
+struct frame_t;
 
 struct node_t{
-virtual node_t* eval();
+virtual node_t* eval(frame_t* frame);
 virtual node_t* apply(list_t* list);
 virtual std::string to_string();
 virtual list_t* as_list();
@@ -36,7 +37,7 @@ struct list_t:node_t{
     void append(node_t* value); 
     std::string to_string();
     
-    node_t* eval();
+    node_t* eval(frame_t* frame);
 };
 
 struct keyword_t:node_t{
@@ -49,7 +50,7 @@ struct keyword_t:node_t{
 struct add_t:keyword_t{
     add_t();
 
-    node_t* apply(list_t* list);
+    node_t* apply(list_t* list, frame_t* frame);
 };
 
 struct symbol_t:node_t{

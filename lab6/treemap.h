@@ -19,6 +19,24 @@ struct treemap_t{
 
     treemap_t():root{nullptr}{}
 
+    node_t* lookup(node_t** pcur, node_t* parent, const K* key, bool create){
+
+        if(*pcur == nullptr){
+            if(create == false) return nullptr; //we did not find
+            
+            *pcur = new node_t { parent };
+            (*pcur)->key = *key;
+            return *pcur;
+        }
+        node_t* cur = *pcur;
+
+        if(*key == cur->key) return cur;
+
+        if(*key < cur->key) return lookup(&cur->left, cur, key, create);
+        else return lookup(&cur->right, cur, key, create);
+
+    }
+
 };
 
 

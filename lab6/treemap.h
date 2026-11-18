@@ -1,3 +1,6 @@
+#include<iostream>
+#include<string>
+
 template<typename K, typename V>
 struct treemap_t{
 
@@ -64,6 +67,25 @@ struct treemap_t{
         display(root, "");
     }
 
+    struct iterator_t{
+        node_t* cur;
+        iterator_t(node_t* root){
+            while(root->left != nullptr) root = root->left;
+            cur = root;
+        };
+
+        void next(){
+            if(cur->right != nullptr){
+                cur = cur->right;
+                while(cur->left != nullptr) cur = cur->left;
+            }else{
+                while(cur->parent != nullptr && cur->parent->right == cur){
+                    cur = cur->parent;
+                }
+                cur = cur->parent;
+            }
+        }
+    };
 };
 
 

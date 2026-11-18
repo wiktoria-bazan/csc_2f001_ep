@@ -27,6 +27,12 @@ int main(int arg, char* argv[]){
 
     //std::cout << map.at("Kevan") << std::endl;
 
-    map.display();
+    //map.display();
+
+    for(treemap_t<std::string, double>::iterator_t it = treemap_t<std::string, double>::iterator_t { map.root };
+    it.cur != nullptr;
+    it.next()) {
+     std::cout << it.cur->key << " => " << it.cur->value << std::endl;
+    }
         
 }

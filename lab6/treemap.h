@@ -52,6 +52,18 @@ struct treemap_t{
         return cur->value;
     }
 
+    void display(node_t* cur, std::string prefix){
+        if(cur == nullptr) return;
+
+        display(cur->left, prefix + "  ");
+        std::cout<<prefix<<"("<<cur->key<<", "<<cur->value<<")"<<std::endl;
+        display(cur->right, prefix + "  ");
+    }
+
+    void display(){
+        display(root, "");
+    }
+
 };
 
 

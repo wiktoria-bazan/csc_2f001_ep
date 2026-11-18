@@ -25,6 +25,8 @@ int main(int arg, char* argv[]){
     map.set_at("Martyn", 32);
     map.set_at("Willem", 6);
 
-    std::cout << map.at("Kevan") << std::endl;
+    //std::cout << map.at("Kevan") << std::endl;
+
+    map.display();
         
 }

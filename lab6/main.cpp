@@ -29,10 +29,9 @@ int main(int arg, char* argv[]){
 
     //map.display();
 
-    for(treemap_t<std::string, double>::iterator_t it = treemap_t<std::string, double>::iterator_t { map.root };
+    for(treemap_t<std::string, double>::iterator_t it = map.begin();
     it.cur != nullptr;
     it.next()) {
-     std::cout << it.cur->key << " => " << it.cur->value << std::endl;
-    }
-        
+    std::cout << it.cur->key << " => " << it.cur->value << std::endl;
+    }      
 }

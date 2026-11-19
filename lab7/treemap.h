@@ -70,7 +70,7 @@ struct treemap_t{
     struct iterator_t{
         node_t* cur;
         iterator_t(node_t* root){
-            while(root->left != nullptr) root = root->left;
+            while(root != nullptr && root->left != nullptr) root = root->left;
             cur = root;
         };
 
@@ -91,6 +91,10 @@ struct treemap_t{
             return *this;
         }
 
+        bool operator != (const iterator_t& it) const{
+            return this->cur != it.cur;
+        }
+
     };
 
 
@@ -98,6 +102,12 @@ struct treemap_t{
         iterator_t it = iterator_t {root};
         return it;
     }
+
+    iterator_t end(){
+        iterator_t it = iterator_t {nullptr};
+        return it;
+    }
+
 
     V& operator [] (const K& key){
         return lookup(&root, nullptr, &key, true)->value;

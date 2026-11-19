@@ -3,7 +3,7 @@
 #include "treemap.h"
 
 int main(int arg, char* argv[]){
-    treemap_t<std::string, double> map;
+    treemap_t<std::string, account_t> map;
 
     map["Tyrion"] = 2;
     map["Jaime"] = 15;

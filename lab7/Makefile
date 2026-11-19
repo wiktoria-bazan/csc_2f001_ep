@@ -4,10 +4,10 @@
 
 CFLAGS= -Wall -Werror
 
-all: main
+all: monster
 
-main: main.cpp treemap.h
-	g++ -std=c++20 $(CFLAGS) main.cpp -o main 
+monster: monster.cpp 
+	g++ -std=c++20 $(CFLAGS) monster.cpp -o monster 
 
 clean: 
-	rm -f main
+	rm -f monster

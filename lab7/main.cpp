@@ -18,8 +18,8 @@ int main(int arg, char* argv[]){
     //std::cout << map.at("Kevan") << std::endl;
 
     //map.display();
-
-    for(auto it = map.begin(); it.cur != nullptr; it.next()) {
+    
+    for(auto it = map.begin(); it.cur != nullptr; ++it) { 
     std::cout << it.cur->key << " => " << it.cur->value << std::endl;
     } 
 }

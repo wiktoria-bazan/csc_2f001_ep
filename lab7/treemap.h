@@ -85,7 +85,14 @@ struct treemap_t{
                 cur = cur->parent;
             }
         }
+
+        iterator_t& operator ++(){
+            next();
+            return *this;
+        }
+
     };
+
 
     iterator_t begin(){
         iterator_t it = iterator_t {root};

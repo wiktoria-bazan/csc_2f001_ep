@@ -125,7 +125,16 @@ struct account_t{
     
     account_t():balance{0}, note{""}{};
     account_t(double balance):balance{balance}, note{""}{};
+
 };
+
+std::ostream& operator << (std::ostream& os, const account_t& account){
+    os << account.balance<<"€";
+    if(account.note != ""){
+        os<<" ("<<account.note<<")";
+    }
+    return os;
+}
 
 
 

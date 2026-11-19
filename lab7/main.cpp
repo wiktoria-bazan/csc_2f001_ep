@@ -24,5 +24,6 @@ int main(int arg, char* argv[]){
     }
 
     account_t a = 42;
-    std::cout<<a.balance<<"\n";
+    a.note = "best client ever";
+    std::cout << a << std::endl;
 }

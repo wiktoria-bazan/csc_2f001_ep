@@ -19,7 +19,8 @@ int main(int arg, char* argv[]){
 
     //map.display();
     
-    for(auto it = map.begin(); it != map.end(); ++it) {
-    std::cout << it.cur->key << " => " << it.cur->value << std::endl;
-    } 
+    for(auto it=map.begin(); it!=map.end(); ++it) {
+        auto& pair = *it;
+        std::cout << pair.key << " => " << pair.value << std::endl;
+    }
 }

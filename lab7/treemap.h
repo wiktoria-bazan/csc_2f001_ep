@@ -95,6 +95,10 @@ struct treemap_t{
             return this->cur != it.cur;
         }
 
+
+        pair_t& operator *(){
+            return *cur;
+        }
     };
 
 

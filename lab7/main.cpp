@@ -19,7 +19,7 @@ int main(int arg, char* argv[]){
 
     //map.display();
     
-    for(auto& pair: map) {
-        std::cout << pair.key << " => " << pair.value << std::endl;
+    for(auto& [key, value]: map) {
+        std::cout << key << " => " << value << std::endl;
     }
 }

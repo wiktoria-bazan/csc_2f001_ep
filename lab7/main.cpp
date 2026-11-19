@@ -22,4 +22,7 @@ int main(int arg, char* argv[]){
     for(auto& [key, value]: map) {
         std::cout << key << " => " << value << std::endl;
     }
+
+    account_t a = 42;
+    std::cout<<a.balance<<"\n";
 }

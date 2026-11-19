@@ -119,6 +119,14 @@ struct treemap_t{
     
 };
 
+struct account_t{
+    double balance;
+    std::string note;
+    
+    account_t():balance{0}, note{""}{};
+    account_t(double balance):balance{balance}, note{""}{};
+};
+
 
 
 

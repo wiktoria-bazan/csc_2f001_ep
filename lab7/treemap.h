@@ -137,6 +137,27 @@ std::ostream& operator << (std::ostream& os, const account_t& account){
 }
 
 
+struct lanister_t{
+    std::string name;
+    
+    lanister_t():name{""}{};
+    lanister_t(std::string name):name{name}{};
+    lanister_t(const char* name):name{name}{};
+
+
+    bool operator < (const lanister_t& lanister) const{
+        return this->name < lanister.name;
+    }
+    bool operator == (const lanister_t& lanister) const{
+        return this->name == lanister.name;
+    }
+};
+
+std::ostream& operator << (std::ostream& os, const lanister_t& lanister){
+    os << lanister.name <<" Lanister";
+    return os;
+}
+
 
 
 

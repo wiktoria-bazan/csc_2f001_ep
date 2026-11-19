@@ -2,8 +2,10 @@
 #include<string>
 #include "treemap.h"
 
+#include <map>
+
 int main(int arg, char* argv[]){
-    treemap_t<lanister_t, account_t> map;
+    std::map<lanister_t, account_t> map;
 
     map["Tyrion"] = 2;
     map["Jaime"] = 15;

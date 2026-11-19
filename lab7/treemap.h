@@ -92,6 +92,9 @@ struct treemap_t{
         return it;
     }
 
+    V& operator [] (const K& key){
+        return lookup(&root, nullptr, &key, true)->value;
+    }
     
 };
 
